@@ -1,5 +1,5 @@
 {% set name = "lumen" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 749e60a6e1137480e5cc8cedc5b4f7768183c0e076938a84ffbb83f1de018825
+  sha256: e0fabf72ce928d6311da8eb811c70a9dfe5ba47e10e7691c8c7b8b0b95e79c20
 
 build:
   number: 0
@@ -40,6 +40,7 @@ outputs:
         - instructor >=1.14.3
         - intake <2
         - jinja2 >3.0
+        - lxml
         - markitdown
         - nbformat
         - numpy
@@ -251,6 +252,7 @@ outputs:
         - {{ pin_subpackage('lumen', exact=True) }}
         - google-genai >=1.56.0
         - jsonref
+        - opentelemetry-instrumentation-google-genai
     test:
       imports:
         - lumen
